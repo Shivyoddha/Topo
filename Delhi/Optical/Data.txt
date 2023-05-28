@@ -1,0 +1,20 @@
+Resistance Distance Spectra:
+  Minimum value: 1.512082310670053e-12
+  Maximum value: 46.97333193712923
+  Average value: 1.9834116308948984
+Distance Spectra:
+  Minimum value: -194.08339230348116
+  Maximum value: 573.4218582248759
+  Average value: -2.878147790420659e-15
+Signless Laplacian Spectra:
+  Minimum value: 0.07571274987961583
+  Maximum value: 7.17993434207133
+  Average value: 2.430379746835443
+Normalized Laplacian Spectra:
+  Minimum value: -1.0375010109386386e-16
+  Maximum value: 1.961513087018074
+  Average value: 1.0000000000000002
+Adjacency Spectra:
+  Minimum value: -2.857903001800864
+  Maximum value: 3.0777045098358964
+  Average value: -5.6213824031653495e-18

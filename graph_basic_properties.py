@@ -3,84 +3,62 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 # Define the adjacency matrix
-adjacency_matrix = np.array(*put the adjacency matrix here*)
+adjacency_matrix = np.array(*put_adjacency_matrix_here*)
 
 # Create a graph from the adjacency matrix
-graph = nx.from_numpy_array(adjacency_matrix)
+G = nx.Graph(adjacency_matrix)
 
-# Calculate Resistance Distance Spectra
-laplacian_matrix = np.diag(np.sum(adjacency_matrix, axis=1)) - adjacency_matrix
-resistance_distance_spectrum = np.sort(np.linalg.eigvalsh(np.linalg.pinv(laplacian_matrix)))
+# Calculate average degree
+average_degree = np.mean([deg for _, deg in G.degree()])
 
-# Calculate Distance Spectra
-distance_matrix = nx.floyd_warshall_numpy(graph)
-distance_spectrum = np.sort(np.linalg.eigvalsh(distance_matrix))
+# Calculate network radius
+network_radius = nx.radius(G)
 
-# Calculate Signless Laplacian Spectra
-signless_laplacian_matrix = adjacency_matrix + np.diag(np.sum(adjacency_matrix, axis=1))
-signless_laplacian_spectrum = np.sort(np.linalg.eigvalsh(signless_laplacian_matrix))
+# Calculate average hop count
+average_hop_count = nx.average_shortest_path_length(G)
 
-# Calculate Normalized Laplacian Spectra
-degree_matrix = np.diag(np.sum(adjacency_matrix, axis=1))
-normalized_laplacian_matrix = np.linalg.inv(np.sqrt(degree_matrix)) @ laplacian_matrix @ np.linalg.inv(np.sqrt(degree_matrix))
-normalized_laplacian_spectrum = np.sort(np.linalg.eigvalsh(normalized_laplacian_matrix))
+# Calculate network diameter
+network_diameter = nx.diameter(G)
 
-# Calculate Adjacency Spectra
-adjacency_spectrum = np.sort(np.linalg.eigvalsh(adjacency_matrix))
+# Calculate node betweenness centrality
+node_betweenness = nx.betweenness_centrality(G)
+max_node_betweenness = max(node_betweenness.values())
 
-# Plot the spectra
-plt.figure(figsize=(10, 6))
+# Calculate node closeness centrality
+node_closeness = nx.closeness_centrality(G)
 
-# Resistance Distance Spectra
-plt.subplot(231)
-plt.plot(resistance_distance_spectrum, 'b')
-plt.title('Resistance Distance Spectra')
+# Calculate degree assortativity
+degree_assortativity = nx.degree_assortativity_coefficient(G)
 
-# Distance Spectra
-plt.subplot(232)
-plt.plot(distance_spectrum, 'g')
-plt.title('Distance Spectra')
+# Calculate maximum degree
+maximum_degree = max([deg for _, deg in G.degree()])
 
-# Signless Laplacian Spectra
-plt.subplot(233)
-plt.plot(signless_laplacian_spectrum, 'r')
-plt.title('Signless Laplacian Spectra')
+# Calculate number of nodes
+number_of_nodes = G.number_of_nodes()
 
-# Normalized Laplacian Spectra
-plt.subplot(234)
-plt.plot(normalized_laplacian_spectrum, 'm')
-plt.title('Normalized Laplacian Spectra')
+# Calculate number of links
+number_of_links = G.number_of_edges()
 
-# Adjacency Spectra
-plt.subplot(235)
-plt.plot(adjacency_spectrum, 'c')
-plt.title('Adjacency Spectra')
+# Calculate average clustering coefficient
+clustering_coefficient = nx.average_clustering(G)
 
-plt.tight_layout()
-plt.show()
+# Calculate algebraic connectivity
+algebraic_connectivity = nx.algebraic_connectivity(G)
 
-# Basic analysis
-print("Resistance Distance Spectra:")
-print("  Minimum value:", np.min(resistance_distance_spectrum))
-print("  Maximum value:", np.max(resistance_distance_spectrum))
-print("  Average value:", np.mean(resistance_distance_spectrum))
+# Calculate link betweenness centrality
+link_betweenness = nx.edge_betweenness_centrality(G)
+max_link_betweenness = max(link_betweenness.values())
 
-print("Distance Spectra:")
-print("  Minimum value:", np.min(distance_spectrum))
-print("  Maximum value:", np.max(distance_spectrum))
-print("  Average value:", np.mean(distance_spectrum))
-
-print("Signless Laplacian Spectra:")
-print("  Minimum value:", np.min(signless_laplacian_spectrum))
-print("  Maximum value:", np.max(signless_laplacian_spectrum))
-print("  Average value:", np.mean(signless_laplacian_spectrum))
-
-print("Normalized Laplacian Spectra:")
-print("  Minimum value:", np.min(normalized_laplacian_spectrum))
-print("  Maximum value:", np.max(normalized_laplacian_spectrum))
-print("  Average value:", np.mean(normalized_laplacian_spectrum))
-
-print("Adjacency Spectra:")
-print("  Minimum value:", np.min(adjacency_spectrum))
-print("  Maximum value:", np.max(adjacency_spectrum))
-print("  Average value:", np.mean(adjacency_spectrum))
+# Print the results
+print("Average degree:", average_degree)
+print("Network radius:", network_radius)
+print("Average hop count:", average_hop_count)
+print("Network diameter:", network_diameter)
+print("Node betweenness (max):", max_node_betweenness)
+print("Degree assortativity:", degree_assortativity)
+print("Maximum degree:", maximum_degree)
+print("Number of nodes:", number_of_nodes)
+print("Number of links:", number_of_links)
+print("Clustering coefficient:", clustering_coefficient)
+print("Algebraic connectivity:", algebraic_connectivity)
+print("Link betweenness (max):", max_link_betweenness)

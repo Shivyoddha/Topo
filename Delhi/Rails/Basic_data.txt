@@ -1,0 +1,12 @@
+Average degree: 2.5306122448979593
+Network radius: 10
+Average hop count: 7.603618767094467
+Network diameter: 19
+Node betweenness (max): 0.538428102538927
+Degree assortativity: -0.22896440129449894
+Maximum degree: 6
+Number of nodes: 98
+Number of links: 124
+Clustering coefficient: 0.02108843537414966
+Algebraic connectivity: 0.017960105492111307
+Link betweenness (max): 0.4376744512237893
